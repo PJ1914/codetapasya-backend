@@ -48,3 +48,14 @@ Thumbs.db
 .env
 
 .nyc_output
+
+# Secrets & Credentials
+secrets/
+**/*.pem
+**/*.key
+creds.json
+service-account.json
+
+# Local Scripts
+scripts/
+*.ps1
