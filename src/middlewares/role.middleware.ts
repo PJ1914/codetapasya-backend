@@ -11,6 +11,7 @@ export const isAdmin = (
   req: Request,
   res: Response,
   next: NextFunction
+<<<<<<< HEAD
 ): void => {
   const user = (req as any).user;
 
@@ -30,6 +31,12 @@ export const isAdmin = (
     return;
   }
 
+=======
+) => {
+  // if ((req as any).user?.role !== 'admin') {
+  //   return res.status(403).json({ message: 'Admin access only' });
+  // }
+>>>>>>> de5be0518acafe56f9e23d8db2ce3e57463e8719
   next();
 };
 
