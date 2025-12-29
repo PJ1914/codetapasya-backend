@@ -11,7 +11,6 @@ export const isAdmin = (
   req: Request,
   res: Response,
   next: NextFunction
-<<<<<<< HEAD
 ): void => {
   const user = (req as any).user;
 
