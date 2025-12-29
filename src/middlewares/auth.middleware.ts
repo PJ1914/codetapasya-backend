@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-<<<<<<< HEAD
 import admin from 'firebase-admin';
 import { UserRole } from '../enums/UserRole.enum.js';
 
@@ -64,30 +63,4 @@ export const verifyFirebaseToken = async (
       details: process.env.NODE_ENV === 'development' ? err.message : undefined,
     });
   }
-};
-=======
-import { firebaseAuth } from '../config/firebase.js';
->>>>>>> de5be0518acafe56f9e23d8db2ce3e57463e8719
-
-export const isAuthenticated = async (req: Request, res: Response, next: NextFunction) => {
-    const authHeader = req.headers.authorization;
-
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        return res.status(401).json({ message: 'Unauthorized: No token provided' });
-    }
-
-    const token = authHeader.split(' ')[1];
-
-    try {
-        const decodedToken = await firebaseAuth.verifyIdToken(token);
-        (req as any).user = {
-            uid: decodedToken.uid,
-            email: decodedToken.email,
-            role: decodedToken.role || 'user' // Assumes 'role' custom claim, defaults to 'user'
-        };
-        next();
-    } catch (error) {
-        console.error("Auth Error:", error);
-        return res.status(401).json({ message: 'Unauthorized: Invalid token' });
-    }
 };
