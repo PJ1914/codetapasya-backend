@@ -48,3 +48,7 @@ Thumbs.db
 .env
 
 .nyc_output
+
+# Ignore compiled JS and source maps accidentally emitted into source
+src/**/*.js
+src/**/*.js.map
